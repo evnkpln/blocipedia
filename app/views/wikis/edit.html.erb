@@ -1,0 +1,30 @@
+<h1>Edit Wiki</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <p>PLACEHOLDER</p>
+        <ul>
+            <li>WDJ AJSPO K JE AME</li>
+            <li>MARBA DO LA WIDGE</li>
+            <li>ZIP BAROOK LE DE FUUNJ</li>
+        </ul>
+    </div>
+    <div class="col-md-8">
+        <%= form_for @wiki do |f| %>
+            <div class="form-group">
+                <%= f.label :title %>
+                <%= f.text_field :title, class: 'form-control', placeholder: "Enter wiki name" %>
+            </div>
+            <div class="form-group">
+                <%= f.label :body %>
+                <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki description" %>
+            </div>
+            <div class="form-group">
+                <%= f.label :public, class: 'checkbox' do %>
+                    <%= f.check_box :private %> Private wiki
+                <% end %>
+            </div>
+            <%= f.submit "Save", class: 'btn btn-success' %>
+        <% end %>
+    </div>
+</div>
