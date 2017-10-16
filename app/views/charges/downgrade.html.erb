@@ -1,0 +1,4 @@
+<%= form_tag charges_path do %>
+  <h4>Are you sure? You will no longer be able to create private wikis and your current private wikis will be made public.</h4>
+  <%= link_to "Downgrade", charges_demote_path , method: 'put', class: 'btn btn-success' %>
+<% end %>
