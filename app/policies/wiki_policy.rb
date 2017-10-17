@@ -1,7 +1,7 @@
 class WikiPolicy
   attr_reader :user, :wiki
 
-  def initialize(user, post)
+  def initialize(user, wiki)
     @user = user
     @wiki = wiki
   end
@@ -12,7 +12,7 @@ class WikiPolicy
 
   def show?
     # scope.where(:id => record.id).exists?
-    true
+    !wiki.private? || user.admin? || user.id == wiki.user_id
   end
 
   def create?
