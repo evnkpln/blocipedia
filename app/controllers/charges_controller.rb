@@ -39,6 +39,10 @@ class ChargesController < ApplicationController
 
   def demote
     current_user.role = :free
+    current_user.wikis.each do |wiki|
+      wiki.private = false
+      wiki.save!
+    end
     current_user.save!
     flash[:notice] = "You've been downgraded to free. Enjoy your #{current_user.role} service!"
     redirect_to welcome_index_path
