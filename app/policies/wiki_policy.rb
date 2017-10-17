@@ -16,7 +16,7 @@ class WikiPolicy
   end
 
   def create?
-    user.admin?
+    true
   end
 
   def new?
