@@ -22,7 +22,7 @@ class CollabsController < ApplicationController
   def destroy
     @collab = Collab.find(params[:id])
     @wiki = @collab.wiki
-    authorize @collab
+    # authorize @collab
 
     if @collab.destroy
       flash[:notice] = "User removed as collaborator."

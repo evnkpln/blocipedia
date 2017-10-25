@@ -12,7 +12,7 @@ class WikiPolicy
 
   def show?
     # scope.where(:id => record.id).exists?
-    !wiki.private? || user.admin? || wiki.user = user || wiki.users.include?(user)
+    !wiki.private? || user.admin? || wiki.user == user || wiki.users.include?(user)
   end
 
   def create?
@@ -24,7 +24,7 @@ class WikiPolicy
   end
 
   def update?
-    user.present?
+    !wiki.private? || user.admin? || wiki.user == user || wiki.users.include?(user)
   end
 
   def edit?

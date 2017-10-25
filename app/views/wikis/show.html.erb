@@ -16,7 +16,12 @@
 <% if @wiki.private? %>
   The following users are listed as collaborators on this wiki:
   <% @wiki.collabs.each do |collab| %>
-    <%= collab.user.email %>
+    <div class="row">
+      <div class="col-md-8">
+        <%= collab.user.email %>
+        <%= link_to "Remove", [@wiki, collab], method: :delete, class: 'btn-sm btn-danger', data: { confirm: 'Are you sure you want to remove this user?' } %>
+      </div>
+      <div class="row">
   <% end %>
   <% if @wiki.user = current_user %>
     <%= link_to "Add Collaborator", new_wiki_collab_path(@wiki), class: 'btn btn-success' %>
