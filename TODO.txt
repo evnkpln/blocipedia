@@ -1,0 +1,5 @@
+Shore up errors in policy (user not signed in for example)
+Add policy for collabs
+Rework collab model relationship
+Clean up visually.
+Take out placeholder texts and add proper charges screen.
