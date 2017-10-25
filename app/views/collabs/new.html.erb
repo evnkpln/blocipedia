@@ -1,0 +1,21 @@
+<h1>Add new collaborator</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <p>PLACEHOLDER</p>
+        <ul>
+            <li>WDJ AJSPO K JE AME</li>
+            <li>MARBA DO LA WIDGE</li>
+            <li>ZIP BAROOK LE DE FUUNJ</li>
+        </ul>
+    </div>
+    <div class="col-md-8">
+        <%= form_for [@wiki, @collab] do |f| %>
+            <div class="form-group">
+                <%= f.label :user %>
+                <%= f.text_field :user, class: 'form-control', placeholder: "Enter user email" %>
+            </div>
+            <%= f.submit "Save", class: 'btn btn-success' %>
+        <% end %>
+    </div>
+</div>

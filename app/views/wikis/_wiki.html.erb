@@ -1,15 +1,13 @@
-<% if authorized_to_view?(wiki, current_user) %>
-  <div class="media">
-      <div class="media-body">
-          <h4 class="media-heading">
-              <%= link_to wiki.title, wiki %>
-              <% if wiki.private? %>
-                <strong> Private </strong>
-              <% end %>
-          </h4>
-          <small>
-              <%= wiki.body %>
-          </small>
-      </div>
-  </div>
-<% end %>
+<div class="media">
+    <div class="media-body">
+        <h4 class="media-heading">
+            <%= link_to wiki.title, wiki %>
+            <% if wiki.private? %>
+              <strong> Private </strong>
+            <% end %>
+        </h4>
+        <small>
+            <%= wiki.body %>
+        </small>
+    </div>
+</div>

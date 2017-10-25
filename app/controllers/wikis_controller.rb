@@ -2,8 +2,7 @@ class WikisController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @wikis = Wiki.all
-    authorize @wikis
+    @wikis = policy_scope(Wiki)
   end
 
   def show
@@ -57,7 +56,7 @@ class WikisController < ApplicationController
       flash[:notice] = "Wiki was successfuly deleted"
       redirect_to action: :index
     else
-      flash.now[:alert] = "Theere was an error deleting the wiki. Please try again or check your permissions."
+      flash.now[:alert] = "There was an error deleting the wiki. Please try again or check your permissions."
       render :show
     end
   end
