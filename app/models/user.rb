@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   before_save { self.role ||= :free}
   enum role: [:free, :premium, :admin]
   has_many :wikis
+  has_many :collabs
+  has_many :wikis, through: :collabs
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

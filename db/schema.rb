@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171018080723) do
+ActiveRecord::Schema.define(version: 20171025064225) do
+
+  create_table "collabs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "wiki_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "collabs", ["id"], name: "index_collabs_on_id", unique: true
+  add_index "collabs", ["user_id"], name: "index_collabs_on_user_id"
+  add_index "collabs", ["wiki_id"], name: "index_collabs_on_wiki_id"
 
   create_table "pages", force: :cascade do |t|
     t.string   "title"
